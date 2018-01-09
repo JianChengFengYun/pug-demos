@@ -1,0 +1,13 @@
+{
+  "name": "pug-demos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-pug": "^3.3.0"
+  },
+  "dependencies": {
+    "gulp-cli": "^2.0.0"
+  }
+}
