@@ -1,4 +1,8 @@
+安装依赖：
+    npm install
 
+将src中pug模板 编译成HTML到dist
+    gulp
 
 # pug(jade)模板-demos
 
