@@ -1,0 +1,64 @@
+// 定义 会被编译成函数形式
+mixin list
+  ul
+    li foo
+    li bar
+    li baz
+//- 使用
++list
++list  
+
+
+//传参
+mixin pet(name)
+  li.pet= name
+ul
+  +pet('猫')
+  +pet('狗')
+  +pet('猪')
+
+
+//混入也可以把一整个代码块像内容一样传递进来：
+mixin article(title)
+  .article
+    .article-wrapper
+      h1= title
+      if block
+        block
+      else
+        p 没有提供任何内容。
+
++article('Hello world')
+
++article('Hello world')
+  p 这是我
+  p 传入的block
+
+
+// 混入的属性 
+//混入也可以隐式地，从“标签属性”得到一个参数 attributes：
+mixin link(href, name)
+  //- attributes == {class: "btn"}
+  a(class!=attributes.class href=href)= name
+  //- attributes已经转义，所以应该使用！=避免二次转义
+
++link('/foo', 'foo')(class="btn")
+
+//也可以直接用 &attributes 方法来传递 attributes 参数
+mixin link(href, name)
+  a(href=href)&attributes(attributes)= name
+
++link('/foo', 'foo')(class="btn")
+
+// 剩余参数
+mixin list(id, ...items)
+  ul(id=id)
+    each item in items
+      li= item
+
++list('my-list', 1, 2, 3, 4)
+
+
+
+
+

@@ -1,0 +1,19 @@
+// 转义语法
+- var code = "<code></code>";
+div #{code}
+-var htmlData='<strong>sdf</strong>'
+p #{htmlData}
+p=htmlData
+
+// 非转义插值
+- var code = "<code></code>";
+div !{code}
+p!=htmlData
+
+//没有的变量赋值 是空值而不是undefined
+p=aa
+
+
+// （HTML）标签插入
+div
+    | this is a pug #[code code sequence].

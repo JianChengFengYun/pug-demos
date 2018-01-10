@@ -1,13 +1,70 @@
 // id# class. 属性
 div#whoishaoqi.tellme My Dage
 
-div 
-    p Ziyuan is handsome
-    | no I can't agree
-    p so you a stick 
 
 // 其他属性 括号()
 div.aclass#bid(data-name="My Name") Content
 
+= '\n'
+a(href='baidu.com') 百度
+= '\n'
+a(class='button' href='baidu.com') 百度
+= '\n'
+a(class='button', href='baidu.com') 百度
+
+// 多行属性 
+input(
+  type='checkbox'
+  name='agreement'
+  checked
+)
+
+// 如果您的属性名称中含有某些奇怪的字符，并且可能会与 JavaScript 语法产生冲突的话，请您将它们使用 "" 或者  '' 括起来。您还可以使用逗号来分割不同的属性。
+//- div(class='div-class' (click)='play()') //会报错
+
+div(class='div-class' click='play()')
+div(class='div-class', (click)='play()')
+div(class='div-class' '(click)'='play()')
+
+// 所有 JavaScript 表达式都能用：
+- var authenticated = true
+div(class=authenticated ? 'authed' : 'anon') aa
+
 // or &attributes
 p#para&attributes({"A": "a", "B": "b"}) My paragraph.
+= '\n'
+
+- var attributes = {};
+- attributes.class = 'baz';
+div#foo(data-bar="foo")&attributes(attributes)
+
+// 属性嵌入
+
+- var url = 'pug-test.html';
+a(href='/' + url) 链接
+
+= '\n'
+
+- url = 'https://example.com/'
+a(href=url) 另一个链接
+
+// 样式属性
+= '\n'
+a(style={color: 'red', background: 'green'})
+
+//类属性 
+
+= '\n'
+- var classes = ['foo', 'bar', 'baz']
+a(class=classes)
+= '\n'
+//- the class attribute may also be repeated to merge arrays
+a.bang(class=classes class=['bing'])
+
+// 还可以是一个将类名映射为 true 或 false 的对象，这在使用条件性的类的时候非常有用。
+
+- var currentUrl = '/about'
+a(class={active: currentUrl === '/'} href='/') Home
+= '\n'
+a(class={active: currentUrl === '/about'} href='/about') About
+

@@ -1,0 +1,21 @@
+- var user = { description: '' }
+- var authorised = true
+#user
+  if user.description
+    h2.green 描述
+    p.description= user.description
+  else if authorised
+    h2.blue 描述
+    p.description.
+      用户没有添加描述。
+      不写点什么吗……
+  else
+    h2.red 描述
+    p.description 用户没有描述
+
+
+unless false
+  p 您已经以 #{user.name} 的身份登录。
+
+unless true
+  p 您已经以 #{user.name} 的身份登录。

@@ -1,7 +1,62 @@
-div
-    p hello guys
-p Mr Li is our leader
+doctype html
+html
+    head
+        title hello pug 
+    body
+        h1 pug pug
 
+        div
+            p hello guys
+        p Mr Li is our leader
+
+        // 块展开
+        = "\n"
+        a: img
+        = "\n"
+        
+        // 自闭合标签
+
+        foo/
+        foo(bar='baz')/
+
+        // 多行文本
+        p.
+            asdfasdfa
+            asdfasd
+            adsfasd
+            asdfasdfa
+        //- or
+        p
+            | dfas
+            | dfas
+            | dfas
+        // 文本有标签
+        p
+            | dfas <strong>hey</strong>
+            | dfas
+            | dfas
+        //- or
+        p
+            | dfas 
+            strong hey man
+            | dfas
+            | dfas
+        div 
+            p Ziyuan is handsome
+            | no I can't agree
+            p so you a stick 
+
+        //- 块注释 注意缩进
+        div
+            //
+                As much text as you want
+                can go here.
 //- this line will be ignored.
 
 // this line will be genetated.
+
+script.
+    if (usingPug)
+        console.log('这是明智的选择。')
+    else
+        console.log('请用 Pug。')
