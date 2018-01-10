@@ -19,12 +19,6 @@ https://segmentfault.com/a/1190000006198621
 
 1. 标签
     - Pug 中，缩进表示元素的嵌套
-
-    ```pug
-        a: img
-    ```
-    - 快展开
-
     ```pug
         doctype html
         html
@@ -33,6 +27,12 @@ https://segmentfault.com/a/1190000006198621
             body
                 h1 pug pug
     ```
+
+    - 快展开
+    ```pug
+        a: img
+    ```
+
 
     - 自闭和标签
 
